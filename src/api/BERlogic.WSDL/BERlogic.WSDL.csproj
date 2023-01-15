@@ -1,0 +1,52 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<Authors>Ruslan S. Sadykov</Authors>
+		<Company>Phaenir</Company>
+		<Description>This is a library that realize BERlogic GmbH WSDL API</Description>
+		<SignAssembly>false</SignAssembly>
+		<EnforceCodeStyleInBuild>false</EnforceCodeStyleInBuild>
+		<EnableNETAnalyzers>true</EnableNETAnalyzers>
+		<AnalysisLevel>5.0</AnalysisLevel>
+		<RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<OutputPath>D:\Projects\VisualStudio\MyProductionProjects\Berlogic\CallCenter\HelpTools\out\debug\</OutputPath>
+		<DocumentationFile>D:\Projects\VisualStudio\MyProductionProjects\Berlogic\CallCenter\HelpTools\documents\BERlogic.WSDL.xml</DocumentationFile>
+		<NoWarn>1701;1702; 0169</NoWarn>
+	</PropertyGroup>
+	<PropertyGroup>
+		<LangVersion>latest</LangVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Remove="Connected Services\BERlogic.WSDL.General\**" />
+		<EmbeddedResource Remove="Connected Services\BERlogic.WSDL.General\**" />
+		<None Remove="Connected Services\BERlogic.WSDL.General\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.DependencyValidation.Analyzers" Version="0.11.0" />
+		<PackageReference Include="SoapHttpClient" Version="3.0.0" />
+		<PackageReference Include="System.ServiceModel.Duplex" Version="4.8.1" />
+		<PackageReference Include="System.ServiceModel.Http" Version="4.8.1" />
+		<PackageReference Include="System.ServiceModel.NetTcp" Version="4.8.1" />
+		<PackageReference Include="System.ServiceModel.Security" Version="4.8.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<WCFMetadata Include="Connected Services" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\..\..\..\LibrariesCollection\CommonModels\Phaenir.Common.Models\Phaenir.Common.Models.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Connected Services\" />
+	  <Folder Include="Models\RailRoad\" />
+	</ItemGroup>
+
+</Project>

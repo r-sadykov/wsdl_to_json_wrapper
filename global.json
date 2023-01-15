@@ -1,0 +1,7 @@
+{
+  "sdk": {
+	"allowPrerelease": false,
+    "version": "net5.0",
+	"rollForward": "latestFeature"
+  }
+}
